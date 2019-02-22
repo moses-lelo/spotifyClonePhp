@@ -40,8 +40,12 @@ if(isset($_POST['RegisterButton'])){
   
    $password2 = sanitizeFormPassword($_POST['password2']);
 
+   $wasSuccessful =$account->register($username,$firstname,$lastName,$email, $email2, $password, $password2);
 
-    
+   if($wasSuccessful){
+       header("Location: index.php");
+   }
+
 }
 
 ?>
