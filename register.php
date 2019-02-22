@@ -1,3 +1,54 @@
+<?php
+//Evite certain probleme de Hacking 
+function sanitizeFormUsername($inputText){
+
+    $inputText = strip_tags($inputText);
+    $inputText = str_replace(" ", "", $inputText);
+    return $inputText;
+}
+
+//Evite certain probleme de Hacking 
+function sanitizeFormString($inputText){
+
+    $inputText = strip_tags($inputText);
+    $inputText = str_replace(" ", "", $inputText);
+    $inputText = ucfirst(strtolower($inputText));
+    return $inputText;
+}
+
+function sanitizeFormPassword($inputText){
+
+    $inputText = strip_tags($inputText);
+    return $inputText;
+}
+
+if(isset($_POST['loginButton'])){
+  
+
+}
+
+if(isset($_POST['RegisterButton'])){
+  
+   $username = sanitizeFormUsername($_POST['username']);   
+
+   $firstName = sanitizeFormString($_POST['firstName']);
+
+   $lastName = sanitizeFormString($_POST['lastName']);
+
+   $email = sanitizeFormString($_POST['email']);
+
+   $email2 = sanitizeFormString($_POST['email2']);
+
+   $password = sanitizeFormPassword($_POST['password']);
+  
+   $password2 = sanitizeFormPassword($_POST['password2']);
+
+
+    
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -26,9 +77,9 @@
 
 
         <form method="POST" action="register.php" id="RegisterForm">
-            <h2>Cree ton compte</h2>
+            <h2>Crée ton compte</h2>
             <p>
-                <label for="username">Identifiant: </label>
+                <label for="username">Pseudo: </label>
                 <input id="username" name="username" type="text" placeholder="ex: Leonardo" required>
             </p>
 
